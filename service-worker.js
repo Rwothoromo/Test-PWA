@@ -1,5 +1,5 @@
-var dataCacheName = 'weatherData-v1';
-var cacheName = 'weatherPWA-step-6-1';
+var dataCacheName = 'Outbox-PWA-v1';
+var cacheName = 'Outbox-PWA-step-1';
 var filesToCache = [
   '/',
   '/index.html',
@@ -46,7 +46,8 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
-  var dataUrl = 'https://publicdata-weather.firebaseio.com/';
+  //var dataUrl = 'https://publicdata-weather.firebaseio.com/';
+  var dataUrl = 'https://www.eventbriteapi.com/v3/users/me/owned_events/?token=DCVJK7YH7KWGIR5WU4LA';
   if (e.request.url.indexOf(dataUrl) === 0) {
     e.respondWith(
       fetch(e.request)
