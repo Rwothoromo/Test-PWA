@@ -5,8 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather PWA</title>
+  <title>Outbox Hub Events</title>
   <link rel="stylesheet" type="text/css" href="styles/inline.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="manifest" href="/manifest.json">
 
   <!-- Add to home screen for Safari on iOS -->
@@ -19,141 +20,169 @@
   <meta name="msapplication-TileColor" content="#2F3BA2">
 </head>
 <body>
+	<div class="navbar navbar-inverse navbar-static-top" style="background-color: #1288DE !important; border-bottom:1px solid #1288DE !important;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="color:#fff !important;">Outbox Events</a>
+    </div>
 
-  <header class="header">
-    <h1 class="header__title">Weather PWA</h1>
-    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
-    <button id="butAdd" class="headerButton" aria-label="Add"></button>
-  </header>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    
+      <ul class="nav navbar-nav navbar-right lightNav">
+        <li><a href="#">About</a></li>
+		<li><a href="#">Contact us</a></li>
+		<li><a href="#">Outbox</a></li>
+		
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+		<div class="thumbnail">
+		<img src="images/eventImg.jpg" class="img-responsive">
+			<div class="details">
+			<h4 class="text-primary">Sustainable Agri Hack</h4>
+			<hr style="margin:0 !important;">
+			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
+			<p class="">Makerere University</p>
+			
+			</div>
+			<div class="btn-group btn-group-xs">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
+			</div>
+			</div>
+		</div>
+		
+		
+		<div class="col-md-3 ">
+		<div class="thumbnail">
+		<img src="images/eventImg.jpg" class="img-responsive">
+			<div class="details">
+			<h4 class="text-primary">Sustainable Agri Hack</h4>
+			<hr style="margin:0 !important;">
+			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
+			<p class="">Makerere University</p>
+			
+			</div>
+			<div class="btn-group btn-group-xs">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
+			</div>
+			</div>
+		</div>
+		
+		
+		<div class="col-md-3 ">
+		<div class="thumbnail">
+		<img src="images/eventImg.jpg" class="img-responsive">
+			<div class="details">
+			<h4 class="text-primary">Sustainable Agri Hack</h4>
+			<hr style="margin:0 !important;">
+			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
+			<p class="">Makerere University</p>
+			
+			</div>
+			<div class="btn-group btn-group-xs">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
+			</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3 ">
+		<div class="thumbnail">
+		<img src="images/eventImg.jpg" class="img-responsive">
+			<div class="details">
+			<h4 class="text-primary"><a data-toggle="modal" data-target="#myModal" >Sustainable Agri Hack</a></h4>
+			<hr style="margin:0 !important;">
+			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
+			<p class="">Makerere University</p>
+			
+			</div>
+			<div class="btn-group btn-group-xs">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
+			</div>
+			</div>
+		</div>
+		
+	</div>
 
-  <main class="main">
-    <div class="card cardTemplate weather-forecast" hidden>
-      <div class="city-key" hidden></div>
-      <div class="location"></div>
-      <div class="date"></div>
-      <div class="description"></div>
-      <div class="current">
-        <div class="visual">
-          <div class="icon"></div>
-          <div class="temperature">
-            <span class="value"></span><span class="scale">°F</span>
-          </div>
-        </div>
-        <div class="description">
-          <div class="feels-like">
-            <span class="value"></span><span class="scale">°F</span>
-          </div>
-          <div class="precip"></div>
-          <div class="humidity"></div>
-          <div class="wind">
-            <span class="value"></span>
-            <span class="scale">mph</span>
-            <span class="direction"></span>°
-          </div>
-        </div>
+</div>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="future">
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
-        <div class="oneday">
-          <div class="date"></div>
-          <div class="icon"></div>
-          <div class="temp-high">
-            <span class="value"></span>°
-          </div>
-          <div class="temp-low">
-            <span class="value"></span>°
-          </div>
-        </div>
+      <div class="modal-body">
+        <img src="images/eventImg.jpg" class="img-responsive">
+			<div class="details">
+			<h4 class="text-primary">Sustainable Agri Hack</h4>
+			<hr style="margin:0 !important;">
+			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
+			<p class="">Makerere University</p>
+			
+			</div>
+			
+      </div>
+      <div class="modal-footer">
+        <div class="pull-left btn-group btn-group-xs">
+				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
+				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
+				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
+			</div>
+			
+			
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-  </main>
 
-  <div class="dialog-container">
-    <div class="dialog">
-      <div class="dialog-title">Add new city</div>
-      <div class="dialog-body">
-        <select id="selectCityToAdd">
-          <option value="austin">Austin, TX</option>
-          <option value="boston">Boston, MA</option>
-          <option value="chicago">Chicago, IL</option>
-          <option value="portland">Portland, OR</option>
-          <option value="sanfrancisco">San Francisco, CA</option>
-          <option value="seattle">Seattle, WA</option>
-        </select>
-      </div>
-      <div class="dialog-buttons">
-        <button id="butAddCity" class="button">Add</button>
-        <button id="butAddCancel" class="button">Cancel</button>
-      </div>
-    </div>
   </div>
+</div>
+<div class="navbar navbar-default navbar-static-bottom" style="position:absolute; bottom:0; width:100%;">
+  <div class="container-fluid">
+   <div class="copyright navbar-brand">
+	<p>2016 &copy;</p>
+   </div>
+    
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+		<li><a href="#">Contact us</a></li>
+		<li><a href="#">Outbox</a></li>
+		
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 
-  <div class="loader">
-    <svg viewBox="0 0 32 32" width="32" height="32">
-      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-    </svg>
-  </div>
+</body>
 
+  
   <script src="scripts/app.js" async></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  
   
 </body>
 </html>
