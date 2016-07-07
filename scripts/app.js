@@ -151,7 +151,7 @@
 
   // Gets a forecast for a specific city and update the card with the data
   app.getForecast = function(key, label) {
-    var url = 'https://publicdata-weather.firebaseio.com/';
+    var url = 'https://www.eventbriteapi.com/v3/users/me/owned_events/?token=DCVJK7YH7KWGIR5WU4LA';
     url += key + '.json';
     if ('caches' in window) {
       caches.match(url).then(function(response) {
