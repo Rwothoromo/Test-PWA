@@ -1,5 +1,5 @@
-var dataCacheName = 'weatherData-v1';
-var cacheName = 'weatherPWA-step-6-1';
+var dataCacheName = 'outboxEventsData-v1';
+var cacheName = 'outboxEvents-v1';
 var filesToCache = [
   '/',
   '/index.html',
@@ -9,7 +9,6 @@ var filesToCache = [
   '/images/cloudy-scattered-showers.png',
   '/images/cloudy.png',
   '/images/fog.png',
-  '/images/ic_add_white_24px.svg',
   '/images/ic_refresh_white_24px.svg',
   '/images/partly-cloudy.png',
   '/images/rain.png',
@@ -46,7 +45,7 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
-  var dataUrl = 'https://publicdata-weather.firebaseio.com/';
+  var dataUrl = 'https://www.eventbriteapi.com/v3/users/me/owned_events/?order_by=start_asc&status=draft%2Clive%2Cstarted%2Ccanceled&token=DCVJK7YH7KWGIR5WU4LA';
   if (e.request.url.indexOf(dataUrl) === 0) {
     e.respondWith(
       fetch(e.request)

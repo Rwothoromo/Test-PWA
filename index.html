@@ -3,186 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <link rel="canonical" href="https://www.outbox.co.ug/events">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outbox Hub Events</title>
+  <title>Outbox Events</title>
   <link rel="stylesheet" type="text/css" href="styles/inline.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="manifest" href="/manifest.json">
 
   <!-- Add to home screen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Weather PWA">
+  <meta name="apple-mobile-web-app-title" content="Outbox Events">
   <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
 
   <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
+  <meta name="msapplication-TileColor" content="#9E6E3E">
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-static-top" style="background-color: #1288DE !important; border-bottom:1px solid #1288DE !important;">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#" style="color:#fff !important;">Outbox Events</a>
+
+  <header class="header">
+    <h1 class="header__title">Outbox Events</h1>
+    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+  </header>
+
+  <main class="main">
+    <div class="card cardTemplate outbox-event" hidden>
+      <div class="id" hidden></div>
+      <div class="category icon"></div>
+      <div class="start-time"></div>
+      <div class="end-time"></div>
+      <div class="name"></div>
+      <div class="description"></div>
     </div>
+  </main>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    
-      <ul class="nav navbar-nav navbar-right lightNav">
-        <li><a href="#">About</a></li>
-		<li><a href="#">Contact us</a></li>
-		<li><a href="#">Outbox</a></li>
-		
-      
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-3 ">
-		<div class="thumbnail">
-		<img src="images/eventImg.jpg" class="img-responsive">
-			<div class="details">
-			<h4 class="text-primary">Sustainable Agri Hack</h4>
-			<hr style="margin:0 !important;">
-			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
-			<p class="">Makerere University</p>
-			
-			</div>
-			<div class="btn-group btn-group-xs">
-				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
-				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
-				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
-			</div>
-			</div>
-		</div>
-		
-		
-		<div class="col-md-3 ">
-		<div class="thumbnail">
-		<img src="images/eventImg.jpg" class="img-responsive">
-			<div class="details">
-			<h4 class="text-primary">Sustainable Agri Hack</h4>
-			<hr style="margin:0 !important;">
-			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
-			<p class="">Makerere University</p>
-			
-			</div>
-			<div class="btn-group btn-group-xs">
-				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
-				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
-				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
-			</div>
-			</div>
-		</div>
-		
-		
-		<div class="col-md-3 ">
-		<div class="thumbnail">
-		<img src="images/eventImg.jpg" class="img-responsive">
-			<div class="details">
-			<h4 class="text-primary">Sustainable Agri Hack</h4>
-			<hr style="margin:0 !important;">
-			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
-			<p class="">Makerere University</p>
-			
-			</div>
-			<div class="btn-group btn-group-xs">
-				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
-				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
-				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
-			</div>
-			</div>
-		</div>
-		
-		<div class="col-md-3 ">
-		<div class="thumbnail">
-		<img src="images/eventImg.jpg" class="img-responsive">
-			<div class="details">
-			<h4 class="text-primary"><a data-toggle="modal" data-target="#myModal" >Sustainable Agri Hack</a></h4>
-			<hr style="margin:0 !important;">
-			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
-			<p class="">Makerere University</p>
-			
-			</div>
-			<div class="btn-group btn-group-xs">
-				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
-				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
-				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
-			</div>
-			</div>
-		</div>
-		
-	</div>
-
-</div>
-
-
-
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <img src="images/eventImg.jpg" class="img-responsive">
-			<div class="details">
-			<h4 class="text-primary">Sustainable Agri Hack</h4>
-			<hr style="margin:0 !important;">
-			<p class="text-warning"> Sat, Sep 17 | 7:00 AM</p>
-			<p class="">Makerere University</p>
-			
-			</div>
-			
-      </div>
-      <div class="modal-footer">
-        <div class="pull-left btn-group btn-group-xs">
-				<button class="btn btn-success"><span class="glyphicon glyphicon-share"> </span> Share</button>
-				<button class="btn btn-warning"><span class="glyphicon glyphicon-user"> </span> Invite</button>
-				<button class="btn btn-primary"><span class="glyphicon glyphicon-hand-right"> </span> Attend</button>
-			</div>
-			
-			
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
   </div>
-</div>
-<div class="navbar navbar-default navbar-static-bottom" style="position:absolute; bottom:0; width:100%;">
-  <div class="container-fluid">
-   <div class="copyright navbar-brand">
-	<p>2016 &copy;</p>
-   </div>
-    
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">About</a></li>
-		<li><a href="#">Contact us</a></li>
-		<li><a href="#">Outbox</a></li>
-		
-      
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 
-</body>
-
-  
   <script src="scripts/app.js" async></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  
-  
+
 </body>
 </html>
